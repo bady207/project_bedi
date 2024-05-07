@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\post;
+use App\Models\produk;
+use App\Models\Pengguna;
+use App\Models\telepon;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,4 +45,34 @@ Route::get('/about2/{nama}/{jenis_kelamin}/{alamat}/{pendidikan}/{pekerjaan}',fu
     $pdk = $pendidikan;
     $pkr = $pekerjaan;
     return view('param', compact('nama2','jk','alamt','pdk','pkr'));
+});
+
+Route::get('/data_post',function () {
+    // menampilkan semua data
+    $posts = post::find(2);
+
+    return $posts; 
+
+    // return view('tampil_post', compact('posts')); 
+});
+
+Route::get('/data_produk',function () {
+    // menampilkan semua data
+    $produks = produk::all();
+
+    return view('tampil_produk', compact('produks')); ; 
+});
+
+Route::get('/data_pengguna',function () {
+    // menampilkan semua data
+    $penggunas = pengguna::all();
+
+    return view('tampil_pengguna', compact('penggunas')); ; 
+});
+
+Route::get('/data_telepon',function () {
+    // menampilkan semua data
+    $telepons = telepon::all();
+
+    return view('tampil_telepon', compact('telepons')); ; 
 });
