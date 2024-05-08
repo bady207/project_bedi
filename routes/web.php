@@ -5,6 +5,11 @@ use App\Models\post;
 use App\Models\produk;
 use App\Models\Pengguna;
 use App\Models\telepon;
+use App\Models\merek;
+use App\Models\prodak;
+use App\Models\penjualan;
+use App\Models\barang;
+use App\Models\detail_penjualan;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,4 +80,39 @@ Route::get('/data_telepon',function () {
     $telepons = telepon::all();
 
     return view('tampil_telepon', compact('telepons')); ; 
+});
+
+Route::get('/data_merek',function () {
+    // menampilkan semua data
+    $mereks = merek::all();
+
+    return view('tampil_merek', compact('mereks')); ; 
+});
+
+Route::get('/data_produk2',function () {
+    // menampilkan semua data
+    $prodaks = prodak::all();
+
+    return view('tampil_prodak', compact('prodaks')); ; 
+});
+
+Route::get('/data_penjualan',function () {
+    // menampilkan semua data
+    $penjualans = penjualan::all();
+
+    return view('tampil_penjualan', compact('penjualans')); ; 
+});
+
+Route::get('/data_barang',function () {
+    // menampilkan semua data
+    $barang = barang::all();
+
+    return view('tampil_barang', compact('barang')); ; 
+});
+
+Route::get('/data_detail',function () {
+    // menampilkan semua data
+    $detail_penjualan = detail_penjualan::all();
+
+    return view('tampil_detail', compact('detail_penjualan')); ; 
 });
